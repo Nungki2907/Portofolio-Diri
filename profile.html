@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nungki's World | Personal Profile</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:italic,wght@700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF5F5F;
+            --primary-dark: #ff4040;
+            --light-pink: #FFC4C4;
+            --bg-pink: #FFF5F5;
+            --grid-color: #FFD6D6;
+            --text-dark: #2D2D2D;
+            --text-gray: #666;
+            --white: #fff;
+            --dark-red: #B22222;
+            --pink-main: #ff8fa3;
+            --pink-hover: #ff758f;
+            --pink-soft: #fff1f3;
+            --pink-light: #fce7f3;
+            --gray-text: #4b5563;
+            --gray-light: #9ca3af;
+        }
+
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--pink-soft);
+            color: var(--gray-text);
+            padding-top: 150px;
+            /* Tinggi top bar + navbar + jarak */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        section,
+        div[id] {
+            scroll-margin-top: 160px;
+        }
+
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .handwritten {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .font-light {
+            font-weight: 300;
+        }
+
+        .fw-black {
+            font-weight: 800;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(#ffc0cb 0.8px, transparent 0.8px);
+            background-size: 30px 30px;
+        }
+
+
+        /* ========== NAVBAR - FIXED DI BAWAH TOP BAR ========== */
+        .navbar {
+            background: #f5f5f5;
+            padding: 12px 40px;
+            position: fixed;
+            width: 90%;
+            max-width: 1100px;
+            top: 52px;
+            /* ✅ DI BAWAH TOP BAR */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #ffa1a1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .05);
+            transition: all .3s ease;
+            border-radius: 12px;
+        }
+
+        .navbar.scrolled {
+            width: 95% !important;
+            top: 15px !important;
+            padding: 10px 30px !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .15) !important;
+            background: #fff !important;
+            border-color: #ff6b6b !important;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark-red);
+            text-decoration: none;
+        }
+
+        .logo-separator {
+            color: #999;
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 5px;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ff9999;
+            font-size: .95rem;
+            font-weight: 500;
+            transition: all .3s ease;
+            padding: 8px 16px;
+            display: inline-block;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--dark-red);
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid var(--dark-red);
+        }
+
+        /* ========== DROPDOWN ========== */
+        .has-dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            cursor: pointer;
+            user-select: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-btn .arrow {
+            font-size: .7rem;
+            transition: transform .3s ease;
+        }
+
+        .dropdown-btn.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
+            min-width: 220px;
+            padding: 8px 0;
+            list-style: none;
+            margin: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all .25s ease;
+            z-index: 9999;
+        }
+
+        .has-dropdown.open .dropdown-list {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-list li a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-dark);
+            font-size: .9rem;
+            text-decoration: none;
+            transition: all .2s ease;
+        }
+
+        .dropdown-list li a:hover {
+            background: #fff5f5;
+            color: var(--dark-red);
+            padding-left: 24px;
+        }
+
+        .btn-contact {
+            background: #ff9999 !important;
+            color: #fff !important;
+            font-weight: 600;
+            padding: 10px 24px !important;
+            border-radius: 25px !important;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .3s ease;
+        }
+
+        .btn-contact:hover {
+            background: var(--dark-red) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .15);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero-section {
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+
+        .badge-welcome {
+            display: inline-flex;
+            align-items: center;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--pink-light);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--pink-main);
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-weight: 900;
+            line-height: 1.1;
+            color: #1f2937;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        .btn-pink {
+            background-color: var(--pink-main);
+            color: white;
+            border-radius: 50px;
+            padding: 15px 40px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            box-shadow: 0 15px 30px rgba(255, 143, 163, 0.3);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-pink:hover {
+            background-color: var(--pink-hover);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* ========== TENTANG SECTION ========== */
+        .section-white-card {
+            background: white;
+            border-radius: 60px;
+            padding: 80px 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin: 0 10px;
+        }
+
+        .photo-frame {
+            position: relative;
+            transform: rotate(-2deg);
+            border: 12px solid white;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            background: var(--pink-soft);
+        }
+
+        .it-is-me-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: #fde047;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 900;
+            font-style: italic;
+            transform: rotate(12deg);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+        }
+
+        .bio-label {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--pink-main);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .info-card {
+            padding: 20px;
+            border-radius: 20px;
+            height: 100%;
+        }
+
+        .bg-pink-tiny {
+            background-color: #fff1f2;
+        }
+
+        .bg-blue-tiny {
+            background-color: #eff6ff;
+        }
+
+        .bg-yellow-tiny {
+            background-color: #fefce8;
+        }
+
+        .bg-purple-tiny {
+            background-color: #faf5ff;
+        }
+
+        /* ========== HOBI & MUSIC ========== */
+        .music-card {
+            background: white;
+            padding: 15px;
+            border-radius: 40px;
+            border: 1px solid var(--pink-light);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: rotate(-4deg);
+            transition: transform 0.3s;
+        }
+
+        .music-card:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .music-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        .play-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--pink-main);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+
+        /* ========== FAVORIT CARDS ========== */
+        .fav-card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            height: 100%;
+        }
+
+        .fav-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -15px rgba(255, 143, 163, 0.2);
+            border-color: var(--pink-light);
+        }
+
+        /* ========== MOMEN CARDS ========== */
+        .moment-img-container {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .moment-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .moment-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(255, 143, 163, 0.9));
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .moment-img-container:hover .moment-img {
+            transform: scale(1.1);
+        }
+
+        /* ========== BUCKET LIST ========== */
+        .bucket-section {
+            background: linear-gradient(135deg, #f472b6, #fb7185);
+            border-radius: 50px;
+            padding: 60px 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+
+        .bucket-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            height: 100%;
+        }
+
+        .bucket-number {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: var(--pink-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* ========== QUOTE SECTION ========== */
+        .glass-quote {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid white;
+            border-radius: 50px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #ff5757;
+            padding: 60px 8%;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        .footer-logo h1 {
+            font-size: 52px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo p {
+            color: white;
+            line-height: 1.8;
+            max-width: 220px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .newsletter p {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            width: 60px;
+            border: none;
+            background: #5b0000;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(255, 143, 163, 0.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 992px) {
+            .navbar {
+                flex-direction: column;
+                width: 95%;
+                padding: 15px 20px;
+                gap: 15px;
+                top: 52px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .btn-contact {
+                width: 100%;
+                text-align: center;
+            }
+
+            body {
+                padding-top: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .section-white-card {
+                border-radius: 30px;
+                padding: 60px 15px;
+                margin: 0;
+            }
+
+            .bucket-section {
+                padding: 30px 15px;
+                margin: 0;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .glass-quote {
+                padding: 40px 20px;
+            }
+
+            .navbar {
+                top: 52px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar-text {
+                font-size: 12px;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="grid-pattern">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+        <div class="logo-wrapper">
+            <a href="index.html" class="logo">NK</a>
+            <span class="logo-separator">|</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li class="has-dropdown" id="myDropdown">
+                <a class="dropdown-btn" id="dropdownBtn" onclick="toggleDropdown(event)">
+                    Experience <span class="arrow">▼</span>
+                </a>
+                <ul class="dropdown-list" id="dropdownList">
+                    <li><a href="index.html#experience" onclick="closeDropdown()">Recount Text</a></li>
+                    <li><a href="https://drive.google.com/file/d/1CsK9w5JCvskGYom9b11gnLYfU0I5MCEq/view?usp=sharing"
+                            onclick="closeDropdown()" target="_blank">Curriculum vitae</a></li>
+                    <li><a href="https://www.instagram.com/reel/DYSJABvp7rk/?igsh=Zno3cGZiMHo5Ymh0"
+                            onclick="closeDropdown()" target="_blank">Informatika</a></li>
+                    <li><a href="https://www.figma.com/design/YZMIseTohHYmBD29ylZFhA/Nungki?t=E86Cet9Xbv67QFgU-0"
+                            onclick="closeDropdown()" target="_blank">Desain Figma</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#skills">Skill</a></li>
+            <li><a href="index.html#projects">Project</a></li>
+        </ul>
+        <a href="index.html#contact" class="btn-contact">Contact Me</a>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="beranda" class="hero-section">
+        <div class="container">
+            <div class="badge-welcome">✨ Welcome to Nungki's World</div>
+            <h1 class="hero-title">
+                Be <span class="serif-font italic font-light" style="color: var(--pink-main);">Kind</span>, <br>
+                Stay <span class="serif-font italic font-light" style="color: var(--pink-main);">Happy</span>
+            </h1>
+            <div class="mt-5">
+                <a href="#tentang" class="btn-pink">Get to Know Me!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ME SECTION ========== -->
+    <section id="tentang" class="container mb-5">
+        <div class="section-white-card">
+            <div class="row align-items-center g-5">
+                <div class="col-md-5">
+                    <div class="animate-float">
+                        <div class="photo-frame">
+                            <img src="ASSET/Nungki.jpeg" alt="Photo of Nungki Pratiwi" class="img-fluid w-100">
+                        </div>
+                        <div class="it-is-me-badge">It's Me!</div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <span class="bio-label">Personal Bio</span>
+                    <h2 class="display-5 fw-bold mb-4">Hi, I'm <span style="color: var(--pink-main);">Nungki
+                            Pratiwi</span></h2>
+                    <p class="fs-5 text-secondary mb-5" style="line-height: 1.8;">
+                        Born and raised in Semarang Regency. I'm the type of person who really appreciates the little
+                        things, like chatting with friends until we lose track of time, or simply enjoying the beautiful
+                        scenery around me.
+                    </p>
+                    <div class="row g-3 text-center">
+                        <div class="col-6">
+                            <div class="info-card bg-pink-tiny">
+                                <small class="fw-bold text-uppercase opacity-50"
+                                    style="font-size: 10px; letter-spacing: 1px;">Nickname</small>
+                                <p class="fw-bold fs-5 m-0">Nungki</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="info-card bg-blue-tiny">
+                                <small class="fw-bold text-uppercase opacity-50"
+                                    style="font-size: 10px; letter-spacing: 1px;">Age</small>
+                                <p class="fw-bold fs-5 m-0">16 Years Old</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="info-card bg-yellow-tiny">
+                                <small class="fw-bold text-uppercase opacity-50"
+                                    style="font-size: 10px; letter-spacing: 1px;">Date of Birth</small>
+                                <p class="fw-bold fs-6 m-0">July 29, 2009</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOBBIES SECTION ========== -->
+    <section id="hobi" class="container py-5 my-5">
+        <div class="row align-items-center g-5">
+            <div class="col-md-6">
+                <span class="bio-label">My Hobby</span>
+                <h2 class="display-5 fw-bold mb-4">Listening to Music</h2>
+                <p class="fs-5 text-secondary mb-4">
+                    Music is my way to "escape" from reality for a while. Whether I'm doing homework or just relaxing in
+                    my room, listening to my favorite songs always makes my mood so much better.
+                </p>
+                <div
+                    class="d-inline-flex align-items-center gap-3 bg-white p-3 rounded-4 border border-light shadow-sm">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                    <div>
+                        <small class="fw-bold text-secondary text-uppercase" style="font-size: 9px;">Current
+                            Favorite</small>
+                        <p class="fw-bold m-0">Pop Music</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="music-card mx-auto" style="max-width: 400px;">
+                    <img src="ASSET/song.jpeg" alt="Music Poster" class="music-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAVORITES SECTION ========== -->
+    <section id="favorit" class="container mb-5">
+        <div class="section-white-card">
+            <div class="text-center mb-5">
+                <span class="bio-label">My Favorites</span>
+                <h2 class="display-6 fw-bold">Things I Love</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-lg-3">
+                    <div class="fav-card bg-pink-tiny">
+                        <div class="fs-1 mb-3">🎨</div>
+                        <p class="fw-bold m-0">Pastel Colors</p>
+                        <small class="text-secondary italic">Soft & Girly</small>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="fav-card bg-blue-tiny">
+                        <div class="fs-1 mb-3">👭</div>
+                        <p class="fw-bold m-0">With Friends</p>
+                        <small class="text-secondary italic">Mood Booster!</small>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="fav-card bg-yellow-tiny">
+                        <div class="fs-1 mb-3">🌳</div>
+                        <p class="fw-bold m-0">Nature</p>
+                        <small class="text-secondary italic">So beautiful</small>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="fav-card bg-purple-tiny">
+                        <div class="fs-1 mb-3">☁️</div>
+                        <p class="fw-bold m-0">The Sky</p>
+                        <small class="text-secondary italic">So peaceful</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MOMENTS SECTION ========== -->
+    <section id="momen" class="container py-5">
+        <div class="text-center mb-5">
+            <span class="bio-label">Best Friends</span>
+            <h2 class="display-6 fw-bold">Moments with My Besties</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="moment-img-container">
+                    <img src="ASSET/Lomba.jpeg" alt="School Competition" class="moment-img">
+                    <div class="moment-overlay">Joining competitions together...</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="moment-img-container">
+                    <img src="ASSET/Kartini's day.jpeg" alt="Kartini's Day" class="moment-img">
+                    <div class="moment-overlay">Kartini's Day Celebration</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="moment-img-container">
+                    <img src="ASSET/Pulang bareng.jpeg" alt="Going Home from School" class="moment-img">
+                    <div class="moment-overlay">Going home from school together...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BUCKET LIST SECTION ========== -->
+    <section id="mimpi" class="container py-5 my-5">
+        <div class="bucket-section">
+            <h3 class="display-6 fw-bold text-center mb-5">My Bucket List 📝</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="bucket-item">
+                        <div class="bucket-number">1</div>
+                        <p class="fw-bold m-0">Study at a school abroad</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bucket-item">
+                        <div class="bucket-number">2</div>
+                        <p class="fw-bold m-0">Become fluent in foreign languages.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bucket-item">
+                        <div class="bucket-number">3</div>
+                        <p class="fw-bold m-0">Create work that my parents can be proud of.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bucket-item">
+                        <div class="bucket-number">4</div>
+                        <p class="fw-bold m-0">Travel to many beautiful places around the world</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== QUOTE SECTION ========== -->
+    <section class="container py-5">
+        <div class="glass-quote">
+            <i class="fas fa-quote-left fs-1 opacity-25 mb-4" style="color: var(--pink-main);"></i>
+            <h2 class="display-6 fw-bold italic mb-4" style="color: #374151;">
+                "Don't waste your moments now! Because in the future, you might not get to experience them again."
+            </h2>
+            <p class="fw-bold text-uppercase small m-0" style="color: var(--pink-main); letter-spacing: 2px;">- Nungki
+                Pratiwi</p>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h1>NUNGKI</h1>
+                <p>Thank you for visiting my portfolio and taking the time to explore my work.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#skills">Skill</a></li>
+                    <li><a href="index.html#projects">Project</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Social</h3>
+                <ul>
+                    <li><a href="https://www.instagram.com/lovelysaa14?igsh=OTJ4cXFuYXQ1azcy"
+                            target="_blank">Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@nungkipratiwi481" target="_blank">TikTok</a></li>
+                    <li><a href="https://github.com/Nungki2907" target="_blank">GitHub</a></li>
+                    <li><a href="https://youtube.com/@nungkipratiwi-n2f" target="_blank">YouTube</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column newsletter">
+                <h3>Stay up to Date</h3>
+                <p>Subscribe to our newsletter</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter Your E-mail">
+                    <button>→</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // ===== DROPDOWN TOGGLE =====
+        function toggleDropdown(e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            var dd = document.getElementById('myDropdown');
+            var btn = document.getElementById('dropdownBtn');
+            var isOpen = dd.classList.contains('open');
+            document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
+            document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('open'));
+            if (!isOpen) { dd.classList.add('open'); btn.classList.add('open'); }
+        }
+        function closeDropdown() {
+            document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('open'));
+            document.querySelectorAll('.dropdown-btn').forEach(b => b.classList.remove('open'));
+        }
+        document.addEventListener('click', function (e) {
+            var dd = document.getElementById('myDropdown');
+            var btn = document.getElementById('dropdownBtn');
+            if (!dd.contains(e.target) && !btn.contains(e.target)) { closeDropdown(); }
+        });
+        document.querySelectorAll('.dropdown-list a').forEach(link => {
+            link.addEventListener('click', closeDropdown);
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href.includes('index.html')) return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    closeDropdown();
+                }
+            });
+        });
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) { navbar.classList.add('scrolled'); }
+            else { navbar.classList.remove('scrolled'); }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

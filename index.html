@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nungki Pratiwi</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="top-bar-text">Software Engineering</div>
+    </div>
+    <nav class="navbar">
+        <div class="logo-wrapper"><a href="#" class="logo">NK</a><span class="logo-separator">|</span></div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li class="has-dropdown" id="myDropdown">
+                <a class="dropdown-btn" id="dropdownBtn" onclick="toggleDropdown()">Experience <span
+                        class="arrow">▼</span></a>
+                <ul class="dropdown-list" id="dropdownList">
+                    <li><a href="#experience" onclick="closeDropdown()">Recount Text</a></li>
+                    <li><a href="https://drive.google.com/file/d/1CsK9w5JCvskGYom9b11gnLYfU0I5MCEq/view?usp=sharing"
+                            onclick="closeDropdown()">Curriculum vitae</a></li>
+                    <li><a href="https://www.instagram.com/reel/DYSJABvp7rk/?igsh=Zno3cGZiMHo5Ymh0"
+                            onclick="closeDropdown()">Informatika</a></li>
+                    <li><a href="https://www.figma.com/design/YZMIseTohHYmBD29ylZFhA/Nungki?t=E86Cet9Xbv67QFgU-0"
+                            onclick="closeDropdown()">Desain Figma</a></li>
+                </ul>
+            </li>
+            <li><a href="#skills">Skill</a></li>
+            <li><a href="#projects">Project</a></li>
+        </ul>
+        <a href="#contact" class="btn-contact">Contact Me</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-wrapper">
+            <div class="decoration cherry">🍒</div>
+            <div class="decoration cloud">💭</div>
+            <div class="lightning-left">⚡</div>
+            <div class="decoration-paw">🐾</div>
+            <h1 class="hero-name">NUNGKI PRATIWI</h1>
+            <h2 class="hero-title">A Software Engineering</h2>
+            <button class="btn-explore"
+                onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore</button>
+        </div>
+    </section>
+
+    <div class="marquee">
+        <div class="marquee-content"><span>A Friendly Person</span>| <span>A Smiling Person</span> |<span>A Cheerful
+                Person</span>| <span>An Extroverted Person</span>| <span>A Smiling Person</span> |<span>A Friendly
+                Person</span>|<span>A Smiling Person</span> |<span>A Cheerful Person</span></div>
+    </div>
+
+    <section class="profile" id="about">
+        <div class="grid-bg"></div>
+        <div class="circle-ornament circle1"></div>
+        <div class="circle-ornament circle2"></div>
+        <div class="circle-ornament circle3"></div>
+        <div class="bottom-circle"></div>
+        <div class="profile-card">
+            <div class="float-label label-date" sty> 29 July 2009</div>
+            <div class="float-label label-country">Indonesia</div>
+            <img class="profile-img" src="ASSET/Nungki (2).jpeg" alt="Profile">
+            <div class="card-bottom">
+                <h2>Contact</h2>
+                <div class="contact-item"><i class="bi bi-geo-alt-fill"></i> Semarang, Indonesia</div>
+                <div class="contact-item"><i class="bi bi-envelope-fill"></i> nungkipratiwi965@gmail.com</div>
+                <div class="contact-item"><i class="bi bi-telephone-fill"></i> +62 858 7975 5722</div>
+            </div>
+        </div>
+        <div class="hero-text" style="margin-left:150px">
+            <h1>Hello,<br>I'm Nungki!</h1>
+            <p>My name is Nungki Pratiwi, and I am 16 years old. I am currently in the 10th grade at SMK Negeri
+                Tengaran, majoring in Software and Game Development. I come from Semarang Regency. I really enjoy
+                storytelling because that is where I feel I can best express myself and develop my abilities.</p>
+            <button class="hero-btn" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})"><a
+                    href="profile.html" style="text-decoration:none;color:#fff">View Profile</a></button>
+        </div>
+        <div class="leaf">❀</div>
+    </section>
+
+    <section class="education-section">
+        <div class="education-header"><span>-Education</span>
+            <h2><span>Education</span> | Background</h2>
+        </div>
+        <div class="education-cards">
+            <div class="edu-card active"><img src="ASSET/RA MI.png" alt="RA">
+                <p><a href="ra_miftahul_ulum.html">RA</a></p>
+            </div>
+            <div class="edu-card"><img src="ASSET/RA MI.png" alt="MI">
+                <p><a href="mi_miftahul_ulum.html">MI</a></p>
+            </div>
+            <div class="edu-card active"><img src="ASSET/MTS.png" alt="MTS">
+                <p><a href="mts_negeri_semarang.html">MTS</a></p>
+            </div>
+            <div class="edu-card"><img src="ASSET/SMK.png" alt="SMK">
+                <p><a href="smk_negeri_tengaran.html">SMK</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" style="background: #f9dddd;">
+        <div class="dash-divider-top"></div>
+        <div class="experience-container">
+            <div class="experience-images" style="margin-left:96px">
+                <img src="ASSET/1 (1).jpeg" class="img-top" alt="">
+                <img src="ASSET/1 (2).jpeg" class="img-bottom" alt="">
+                <div class="arrow-shape"></div>
+            </div>
+            <div class="experience-text" style="margin-right:50px">
+                <div class="top-shape"></div>
+                <h1>Recount Text</h1>
+                <h2>–Experience</h2>
+                <p>This text describes the experience of creating a website for a collaborative project between
+                    subjects. It starts with the design stage, continues with coding, and ends with testing to ensure
+                    the website works properly and meets the project objectives.</p>
+                <div class="experience-buttons">
+                    <button class="btn-view"><a href="recount_text.html">View</a></button>
+                    <button class="btn-skip"><a href="#skills"
+                            style="text-decoration: none; color: black;">Skip</a></button>
+                </div>
+                <div class="star star1">★</div>
+                <div class="star star2">★</div>
+            </div>
+        </div>
+        <div class="dash-divider-bottom"></div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <div class="skills-header">
+            <div class="title-wrapper">
+                <h2 class="skills-section-title">MY <span>SKILL</span></h2>
+                <p class="section-subtitle">What skills do I have?</p>
+            </div>
+            <div class="skills-description">
+                <p>Skills I have developed to support productivity and improve the quality of my work.</p>
+            </div>
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="html">HTML</button>
+            <button class="filter-btn" data-filter="css">CSS</button>
+            <button class="filter-btn" data-filter="figma">Figma</button>
+            <button class="filter-btn" data-filter="javascript">JavaScript</button>
+            <button class="filter-btn" data-filter="canva">Canva</button>
+            <button class="filter-btn" data-filter="python">Python</button>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card" data-category="html">
+                <div class="skill-icon"><img
+                        src="https://i.pinimg.com/736x/2e/a0/1c/2ea01c0e92883b6e481dd2e62f5e6d4e.jpg" alt="HTML"></div>
+                <div class="skill-info">
+                    <h3>HTML</h3>
+                    <div class="skill-progress-wrapper">
+                        <div class="progress-bar">
+                            <div class="progress" data-progress="75"></div>
+                        </div><span class="progress-text">75%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card" data-category="javascript">
+                <div class="skill-icon"><img
+                        src="https://i.pinimg.com/736x/a9/35/cb/a935cbd91d3a2822aec34f67e00bedca.jpg" alt="JavaScript">
+                </div>
+                <div class="skill-info">
+                    <h3>JavaScript</h3>
+                    <div class="skill-progress-wrapper">
+                        <div class="progress-bar">
+                            <div class="progress" data-progress="20"></div>
+                        </div><span class="progress-text">20%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card" data-category="css">
+                <div class="skill-icon"><img
+                        src="https://i.pinimg.com/1200x/39/d8/97/39d897b25f0ec8cf71dbbdb50231171a.jpg" alt="CSS"></div>
+                <div class="skill-info">
+                    <h3>CSS</h3>
+                    <div class="skill-progress-wrapper">
+                        <div class="progress-bar">
+                            <div class="progress" data-progress="45"></div>
+                        </div><span class="progress-text">45%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card" data-category="canva">
+                <div class="skill-icon"><img
+                        src="https://i.pinimg.com/736x/b2/24/bc/b224bcfb58a1861dee8afc847a5d657d.jpg" alt="Canva"></div>
+                <div class="skill-info">
+                    <h3>Canva</h3>
+                    <div class="skill-progress-wrapper">
+                        <div class="progress-bar">
+                            <div class="progress" data-progress="80"></div>
+                        </div><span class="progress-text">80%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card" data-category="figma">
+                <div class="skill-icon"><img
+                        src="https://i.pinimg.com/1200x/29/95/95/29959595fe22edde8408b060d3ac3d82.jpg" alt="Figma">
+                </div>
+                <div class="skill-info">
+                    <h3>Figma</h3>
+                    <div class="skill-progress-wrapper">
+                        <div class="progress-bar">
+                            <div class="progress" data-progress="60"></div>
+                        </div><span class="progress-text">60%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card" data-category="python">
+                <div class="skill-icon"><img
+                        src="https://i.pinimg.com/736x/4a/00/c6/4a00c62cc7372a4cfcb9688299ed51a6.jpg" alt="Python">
+                </div>
+                <div class="skill-info">
+                    <h3>Python</h3>
+                    <div class="skill-progress-wrapper">
+                        <div class="progress-bar">
+                            <div class="progress" data-progress="30"></div>
+                        </div><span class="progress-text">30%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="decoration-skill decoration-1"><i class="fas fa-star"></i></div>
+        <div class="decoration-skill decoration-2"><i class="fas fa-star"></i></div>
+        <div class="decoration-circle"></div>
+    </section>
+
+    <section class="project-section" id="projects">
+        <div class="corner-shape top-left"></div>
+        <div class="corner-shape top-right"></div>
+        <div class="corner-shape bottom-left"></div>
+        <div class="corner-shape bottom-right"></div>
+        <div class="project-wrapper">
+            <h1 class="project-section-title">LATEST PROJECT</h1>
+            <div class="row justify-content-center g-4 top-row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card-new"><img src="ASSET/kolaborasi.png" class="project-img-new" alt="">
+                        <div class="card-content-new">
+                            <h3 class="card-title-new">First Semester Collaborative Project</h3><a
+                                href="https://github.com/Nungki2907/kolaborasi-semester-awal"
+                                class="view-btn-new">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card-new"><img src="ASSET/school.png" class="project-img-new" alt="">
+                        <div class="card-content-new">
+                            <h3 class="card-title-new">School Landing Page</h3><a
+                                href=" https://nungki2907.github.io/landing-page-sekolah/" class="view-btn-new">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card-new"><img src="ASSET/nature.png" class="project-img-new" alt="">
+                        <div class="card-content-new">
+                            <h3 class="card-title-new">Nature Landing Page</h3><a
+                                href="https://nungki2907.github.io/landing-page-environmentt/"
+                                class="view-btn-new">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 bottom-row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card-new"><img src="ASSET/free.png" class="project-img-new" alt="">
+                        <div class="card-content-new">
+                            <h3 class="card-title-new">Free Theme Landing Page</h3><a
+                                href="https://nungki2907.github.io/landingpage_tugas_4/" class="view-btn-new">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card-new"><img src="ASSET/furniture.png" class="project-img-new" alt="">
+                        <div class="card-content-new">
+                            <h3 class="card-title-new">Furniture Landing Page</h3><a
+                                href="https://nungki2907.github.io/LandingPage-Furniture-and-Home-Decor/"
+                                class="view-btn-new">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-left">
+                <span class="contact-badge">Contact Me</span>
+                <h1>Can we have <br>a conversation?</h1>
+                <p>We'd love to hear from you. Questions, suggestions, or collaboration ideas are welcome. We'll get
+                    back to you as soon as possible.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/lovelysaa14?igsh=OTJ4cXFuYXQ1azcy"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@nungkipratiwi-n2f?si=L_AkdtfE2vjBlOkc"><i
+                            class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@nungkipratiwi481?is_from_webapp=1&sender_device=pc"><i
+                            class="fab fa-tiktok"></i></a>
+                    <a href="https://github.com/Nungki2907"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h2>Let's Talk!</h2>
+                <form>
+                    <div class="form-group"><label>Name</label><input type="text"></div>
+                    <div class="form-group"><label>E-mail</label><input type="email"></div>
+                    <div class="form-group"><label>Message</label><textarea></textarea></div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h1>NUNGKI</h1>
+                <p>Thank you for visiting my portfolio and taking the time to explore my work.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skill</a></li>
+                    <li><a href="#projects">Project</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 style="text-align: center;">Social</h3>
+                <ul>
+                    <li><a href="https://www.instagram.com/lovelysaa14?igsh=OTJ4cXFuYXQ1azcy">Instagram</a></li>
+                    <li><a
+                            href="https://www.tiktok.com/@csslv_s/video/7634496667701595413?is_from_webapp=1&sender_device=pc">TikTok</a>
+                    </li>
+                    <li><a href="https://github.com/Nungki2907">GitHub</a></li>
+                    <li><a href="https://youtube.com/@nungkipratiwi-n2f?si=L_AkdtfE2vjBlOkc">Youtube</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 style="text-align: center;">Support</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column newsletter">
+                <h3>Stay up to Date</h3>
+                <p>Subscribe to our newsletter</p>
+                <div class="newsletter-form"><input type="email" placeholder="Enter Your E-mail"><button>→</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
